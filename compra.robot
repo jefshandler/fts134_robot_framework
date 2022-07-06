@@ -19,12 +19,12 @@ Compra de Passagem
     E clico no botao Find Flights
     Entao exibe o titulo informando a origem e o destino
     Quando seleciono o primeiro voo
-#    E preencho o nome "Juca"
-#    E seleciono a bandeira "American Express"
-#    E marco a opcao Remember Me
-#    E clico no botao Purchase Flight
-#    Entao exibe a mensagem "Thank you for your purchase today!"
-#    E exibe o preco da passagem como "555 USD"
+    E preencho o nome "Jeferson"
+    E seleciono a bandeira "Visa"
+    E marco a opcao Remember Me
+    E clico no botao "Purchase flight"
+    Entao exibe a mensagem "Thank you for your purchase today!"
+    E exibe o preco da passagem como "555 USD"
 
 *** Keywords ***
 Dado que acesso o site Blazedemo
@@ -48,11 +48,20 @@ Entao exibe o titulo informando a origem e o destino
 Quando seleciono o primeiro voo
     click button    class = btn.btn-small
 
-E preencho o nome "Juca"
-E seleciono a bandeira "American Express"
-E marco a opcao Remember Me
-E clico no botao Purchase Flight
+E preencho o nome "Jeferson"
+    input text  inputName   Jeferson
+E seleciono a bandeira "Visa"
+    select from list by label   name = cardType     Visa
+E marco a opcao Remember me
+    select checkbox     id = rememberMe
+    sleep       5000ms
+E clico no botao "Purchase flight"
+    click button   class = btn.btn-primary
 Entao exibe a mensagem "Thank you for your purchase today!"
+    element should contain  xpath = //h1    Thank you for your purchase today!
 E exibe o preco da passagem como "555 USD"
+    #xpath: encontrar linha que contenha o texto Amount e pegar o valor da segunda celula
+    element should contain   xpath=//table[@class="table"]//tr[td[.="Amount"]]//td[2]    555 USD
 Encerrar
+    sleep       5000ms
     close browser
