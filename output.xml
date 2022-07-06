@@ -1,63 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.4 on win32)" generated="20220705 21:53:55.654" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.4 on win32)" generated="20220705 22:02:53.758" rpa="false" schemaversion="3">
 <suite id="s1" name="Compra" source="F:\projetoPython\fts134_robot_framework\compra.robot">
-<test id="s1-t1" name="Test title" line="17">
+<test id="s1-t1" name="Compra de Passagem" line="15">
 <kw name="Dado que acesso o site Blazedemo">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220705 21:53:55.813" level="INFO">Opening browser 'Chrome' to base url 'https://www.blazedemo.com'.</msg>
-<status status="PASS" starttime="20220705 21:53:55.813" endtime="20220705 21:53:58.036"/>
+<msg timestamp="20220705 22:02:53.960" level="INFO">Opening browser 'Chrome' to base url 'https://www.blazedemo.com'.</msg>
+<status status="PASS" starttime="20220705 22:02:53.959" endtime="20220705 22:02:56.262"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>xpath=//h1</arg>
+<arg>xpath = //h1</arg>
+<arg>30000ms</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20220705 21:53:58.036" endtime="20220705 21:53:58.060"/>
+<status status="PASS" starttime="20220705 22:02:56.262" endtime="20220705 22:02:56.286"/>
 </kw>
 <kw name="Wait Until Element Contains" library="SeleniumLibrary">
-<arg>xpath=//h1</arg>
+<arg>xpath = //h1</arg>
 <arg>Welcome to the Simple Travel Agency!</arg>
+<arg>30000ms</arg>
 <doc>Waits until the element ``locator`` contains ``text``.</doc>
-<status status="PASS" starttime="20220705 21:53:58.060" endtime="20220705 21:53:58.076"/>
+<status status="PASS" starttime="20220705 22:02:56.287" endtime="20220705 22:02:56.301"/>
 </kw>
 <kw name="Wait For Condition" library="SeleniumLibrary">
-<arg>return document.title ==</arg>
-<arg>"BlazeDemo"</arg>
+<arg>return document.title == "BlazeDemo"</arg>
+<arg>30000ms</arg>
 <doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
-<msg timestamp="20220705 21:53:58.076" level="FAIL">ValueError: Argument 'timeout' got value '"BlazeDemo"' that cannot be converted to timedelta or None.</msg>
-<status status="FAIL" starttime="20220705 21:53:58.076" endtime="20220705 21:53:58.077"/>
+<status status="PASS" starttime="20220705 22:02:56.301" endtime="20220705 22:02:56.305"/>
 </kw>
-<status status="FAIL" starttime="20220705 21:53:55.813" endtime="20220705 21:53:58.078"/>
+<status status="PASS" starttime="20220705 22:02:53.959" endtime="20220705 22:02:56.305"/>
 </kw>
-<kw name="Quando seleciono destino como &quot;São Paolo&quot; e seleciono a origem como &quot;New York&quot;" sourcename="Quando seleciono destino como &quot;${origem}&quot; e seleciono a origem como &quot;${destino}&quot;">
-<status status="NOT RUN" starttime="20220705 21:53:58.078" endtime="20220705 21:53:58.078"/>
+<kw name="Quando seleciono a origem como &quot;São Paolo&quot; e destino como &quot;New York&quot;" sourcename="Quando seleciono a origem como &quot;${origem}&quot; e destino como &quot;${destino}&quot;">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${origem}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220705 22:02:56.306" level="INFO">${origem} = São Paolo</msg>
+<status status="PASS" starttime="20220705 22:02:56.306" endtime="20220705 22:02:56.306"/>
 </kw>
-<kw name="E clico no botao find flights">
-<status status="NOT RUN" starttime="20220705 21:53:58.079" endtime="20220705 21:53:58.079"/>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${destino}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220705 22:02:56.306" level="INFO">${destino} = New York</msg>
+<status status="PASS" starttime="20220705 22:02:56.306" endtime="20220705 22:02:56.306"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name = fromPort</arg>
+<arg>${origem}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220705 22:02:56.306" level="INFO">Selecting options from selection list 'name = fromPort' by label São Paolo.</msg>
+<status status="PASS" starttime="20220705 22:02:56.306" endtime="20220705 22:02:56.353"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name = toPort</arg>
+<arg>${destino}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220705 22:02:56.354" level="INFO">Selecting options from selection list 'name = toPort' by label New York.</msg>
+<status status="PASS" starttime="20220705 22:02:56.353" endtime="20220705 22:02:56.401"/>
+</kw>
+<status status="PASS" starttime="20220705 22:02:56.305" endtime="20220705 22:02:56.401"/>
+</kw>
+<kw name="E clico no botao Find Flights">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>class = btn.btn-primary</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220705 22:02:56.402" level="INFO">Clicking button 'class = btn.btn-primary'.</msg>
+<status status="PASS" starttime="20220705 22:02:56.402" endtime="20220705 22:02:56.824"/>
+</kw>
+<status status="PASS" starttime="20220705 22:02:56.402" endtime="20220705 22:02:56.824"/>
+</kw>
+<kw name="Entao exibe o titulo informando a origem e o destino">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>xpath = //h3</arg>
+<arg>Flights from ${origem} to ${destino}:</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220705 22:02:56.853" level="INFO">Element 'xpath = //h3' contains text 'Flights from São Paolo to New York:'.</msg>
+<status status="PASS" starttime="20220705 22:02:56.825" endtime="20220705 22:02:56.853"/>
+</kw>
+<status status="PASS" starttime="20220705 22:02:56.825" endtime="20220705 22:02:56.854"/>
+</kw>
+<kw name="Quando seleciono o primeiro voo">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>class = btn.btn-small</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220705 22:02:56.854" level="INFO">Clicking button 'class = btn.btn-small'.</msg>
+<status status="PASS" starttime="20220705 22:02:56.854" endtime="20220705 22:02:57.257"/>
+</kw>
+<status status="PASS" starttime="20220705 22:02:56.854" endtime="20220705 22:02:57.257"/>
 </kw>
 <kw name="Encerrar" type="TEARDOWN">
-<msg timestamp="20220705 21:53:58.079" level="FAIL">User keyword 'Encerrar' contains no keywords.</msg>
-<status status="FAIL" starttime="20220705 21:53:58.079" endtime="20220705 21:53:58.079">User keyword 'Encerrar' contains no keywords.</status>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220705 22:02:57.258" endtime="20220705 22:02:59.360"/>
+</kw>
+<status status="PASS" starttime="20220705 22:02:57.257" endtime="20220705 22:02:59.360"/>
 </kw>
 <tag>SMOKE</tag>
-<status status="FAIL" starttime="20220705 21:53:55.812" endtime="20220705 21:53:58.080">ValueError: Argument 'timeout' got value '"BlazeDemo"' that cannot be converted to timedelta or None.
-
-Also teardown failed:
-User keyword 'Encerrar' contains no keywords.</status>
+<status status="PASS" starttime="20220705 22:02:53.958" endtime="20220705 22:02:59.360"/>
 </test>
 <doc>Fluxo de compra no site Blazedemo</doc>
-<status status="FAIL" starttime="20220705 21:53:55.655" endtime="20220705 21:53:58.081"/>
+<status status="PASS" starttime="20220705 22:02:53.760" endtime="20220705 22:02:59.361"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">SMOKE</stat>
+<stat pass="1" fail="0" skip="0">SMOKE</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Compra">Compra</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Compra">Compra</stat>
 </suite>
 </statistics>
 <errors>
