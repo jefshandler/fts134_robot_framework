@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.4 on win32)" generated="20220705 21:53:55.654" rpa="false" schemaversion="3">
+<suite id="s1" name="Compra" source="F:\projetoPython\fts134_robot_framework\compra.robot">
+<test id="s1-t1" name="Test title" line="17">
+<kw name="Dado que acesso o site Blazedemo">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220705 21:53:55.813" level="INFO">Opening browser 'Chrome' to base url 'https://www.blazedemo.com'.</msg>
+<status status="PASS" starttime="20220705 21:53:55.813" endtime="20220705 21:53:58.036"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220705 21:53:58.036" endtime="20220705 21:53:58.060"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>xpath=//h1</arg>
+<arg>Welcome to the Simple Travel Agency!</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20220705 21:53:58.060" endtime="20220705 21:53:58.076"/>
+</kw>
+<kw name="Wait For Condition" library="SeleniumLibrary">
+<arg>return document.title ==</arg>
+<arg>"BlazeDemo"</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<msg timestamp="20220705 21:53:58.076" level="FAIL">ValueError: Argument 'timeout' got value '"BlazeDemo"' that cannot be converted to timedelta or None.</msg>
+<status status="FAIL" starttime="20220705 21:53:58.076" endtime="20220705 21:53:58.077"/>
+</kw>
+<status status="FAIL" starttime="20220705 21:53:55.813" endtime="20220705 21:53:58.078"/>
+</kw>
+<kw name="Quando seleciono destino como &quot;São Paolo&quot; e seleciono a origem como &quot;New York&quot;" sourcename="Quando seleciono destino como &quot;${origem}&quot; e seleciono a origem como &quot;${destino}&quot;">
+<status status="NOT RUN" starttime="20220705 21:53:58.078" endtime="20220705 21:53:58.078"/>
+</kw>
+<kw name="E clico no botao find flights">
+<status status="NOT RUN" starttime="20220705 21:53:58.079" endtime="20220705 21:53:58.079"/>
+</kw>
+<kw name="Encerrar" type="TEARDOWN">
+<msg timestamp="20220705 21:53:58.079" level="FAIL">User keyword 'Encerrar' contains no keywords.</msg>
+<status status="FAIL" starttime="20220705 21:53:58.079" endtime="20220705 21:53:58.079">User keyword 'Encerrar' contains no keywords.</status>
+</kw>
+<tag>SMOKE</tag>
+<status status="FAIL" starttime="20220705 21:53:55.812" endtime="20220705 21:53:58.080">ValueError: Argument 'timeout' got value '"BlazeDemo"' that cannot be converted to timedelta or None.
+
+Also teardown failed:
+User keyword 'Encerrar' contains no keywords.</status>
+</test>
+<doc>Fluxo de compra no site Blazedemo</doc>
+<status status="FAIL" starttime="20220705 21:53:55.655" endtime="20220705 21:53:58.081"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">SMOKE</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Compra">Compra</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
