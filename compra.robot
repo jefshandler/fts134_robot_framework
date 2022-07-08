@@ -7,8 +7,10 @@ Library          SeleniumLibrary
 Test Teardown    Encerrar
 
 *** Variables ***
-${url}      https://www.blazedemo.com
-${browser}  Chrome
+${url}        https://www.blazedemo.com
+${browser}    Chrome
+${origem}     São Paolo
+${destino}    New York
 
 # Executa / Valida
 *** Test Cases ***
