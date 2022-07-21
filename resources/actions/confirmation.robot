@@ -1,7 +1,5 @@
 *** Settings ***
 Documentation    Mapeamento das acoes da pagina de confgirmacao
-Library     SeleniumLibrary
-
 
 
 *** Keywords ***
