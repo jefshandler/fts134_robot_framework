@@ -1,35 +1,38 @@
 *** Settings ***
 Documentation    mapeamento das acoes da pagina de pagamento
-
-
+Library          SeleniumLibrary
 
 *** Keywords ***
 Preencher nome "${nome}"
-        input text    id = inputName    ${nome}
+    wait until element is enabled   id = inputName
+    input text      id = inputName  ${nome}
 
-Preencher nome "${endereco}"
-        input text    id = address    ${endereco}
+Preencher endereco "${endereco}"
+    input text      id = address    ${endereco}
 
-Preencher cidade "${city}"
-        input text    id = city    ${city}
+Preencher cidade "${cidade}"
+    input text      id = city    ${cidade}
 
-Preencher uf "${stade}"
-        input text    id = state    ${stade}
+Preencher uf "${uf}"
+    input text      id = state    ${uf}
 
-Preencher cep "${cep}"
-        input text    id = zipCode    ${cep}
+Preencher CEP "${cep}"
+    input text      id = zipCode    ${cep}
 
-Preencher bandeira "${bandeira}"
-        select from list by label       id = cardType       ${bandeira}
+Selecionar bandeira "${bandeira}"
+    select from list by label   id = cardType   ${bandeira}
 
 Preencher mes de validade do cartao "${mes}"
-        input text    id = creditCardmonth    ${mes}
+    input text      id = creditCardMonth        ${mes}
 
 Preencher ano de validade do cartao "${ano}"
-        input text    id = creditCardYear    ${ano}
+    input text      id = creditCardYear       ${ano}
 
-Preencher nome do cartao "${titular}"
-        input text    id = nameOnCard    ${titular}
+Preencher nome no cartao "${titular}"
+    input text      id = nameOnCard        ${titular}
 
-Clicar em Lembrar de mim
-        checkbox should be selected    id = rememberMe
+Clicar em Lembrar de Mim
+    select checkbox     id = rememberMe
+
+Clicar no botao purchase
+    click button    class = btn.btn-primary

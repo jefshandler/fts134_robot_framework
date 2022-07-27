@@ -1,31 +1,32 @@
 *** Settings ***
-Documentation    Mapeamento das acoes da pagina de confgirmacao
-
-
+Documentation    mapeamento das acoes da pagina de confirmacao
+Library          SeleniumLibrary
 *** Keywords ***
 Validar a mensagem de agradecimento "${mensagem}"
-        element should contain     xpath = //h1     ${mensagem}
+    wait until element is visible    xpath = //h1    10
+    element should contain  xpath = //h1    ${mensagem}
 
 Validar o id da passagem "${id}"
-        element should contain    css = tr:nth-child(1) > td:nth-child(2)       ${id}
+    element should contain  css = tr:nth-child(1) > td:nth-child(2)    ${id}
 
-Validar o Status da passagem "${status}"
-        element should contain    css = tr:nth-child(2) > td:nth-child(2)       ${status}
+Validar o status da passagem "${status}"
+    element should contain  css = tr:nth-child(2) > td:nth-child(2)    ${status}
 
 Validar o preco da passagem "${preco}"
-        element should contain    css = tr:nth-child(3) > td:nth-child(2)       ${preco}
+    wait until element is enabled    css = tr:nth-child(3) > td:nth-child(2)    10
+    element should contain  css = tr:nth-child(3) > td:nth-child(2)    ${preco}
 
-Validar os ultimo 4 digitos do cartao "${final_cartao}"
-        element should contain    css = tr:nth-child(4) > td:nth-child(2)       ${final_cartao}"
+Validar os ultimos 4 digitos do cartao "${final_cartao}"
+    element should contain  css = tr:nth-child(4) > td:nth-child(2)    ${final_cartao}
 
 Validar a data de expiracao do cartao "${validade}"
-        element should contain    css = tr:nth-child(5) > td:nth-child(2)       ${validade}
+    element should contain  css = tr:nth-child(5) > td:nth-child(2)    ${validade}
 
-Validar CVV do do cartao "${cvv}"
-        element should contain    css = tr:nth-child(6) > td:nth-child(2)       ${cvv}
+Validar o codigo de seguranca do cartao "${cvv}"
+    element should contain  css = tr:nth-child(6) > td:nth-child(2)    ${cvv}
 
 Validar a data da transacao "${data}"
-        element should contain    css = tr:nth-child(7) > td:nth-child(2)        ${data}
+    element should contain  css = tr:nth-child(7) > td:nth-child(2)    ${data}
 
 Validar o json da transacao "${json_esperado}"
-        element text should be    tag = pre   ${json_esperado}
+    element text should be  tag = pre   ${json_esperado}
