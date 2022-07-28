@@ -19,4 +19,4 @@ CT22 - Boston-Berlin            Boston          Berlin
 *** Keywords ***
 Selecionar Origem e Destino
     [Arguments]    ${origem}       ${destino}
-    Selecionar origem e destino do voo     ${ORIGEM}       ${DESTINO}
+    Selecionar origem e destino do voo     ${origem}       ${destino}
