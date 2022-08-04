@@ -20,32 +20,34 @@ ${appium:appPackage}    com.saucelabs.mydemoapp.android
 ${appium:appActivity}    com.saucelabs.mydemoapp.android.view.activities.SplashActivity
 ${appium:avd}    Pixel2RUFUSb
 ${appium:deviceOrientation}    portrait
-${appium:ensureWebviewsHavePages}    false
-${appium:nativeWebScreenshot}    false
+${appium:ensureWebviewsHavePages}    true
+${appium:nativeWebScreenshot}    true
 ${appium:newCommandTimeout}    3600
-${appium:connectHardwareKeyboard}    True
+${appium:connectHardwareKeyboard}    true
 
 *** Test Cases ***
 Test case name
 
     Open Application    ${REMOTE_URL}   platformName=${platformName}  appium:automationName=${appium:automationName}  appium:deviceName=${appium:deviceName}  appium:appPackage=${appium:appPackage}  appium:appActivity=${appium:appActivity}  appium:avd=${appium:avd}  appium:deviceOrientation=${appium:deviceOrientation}  appium:ensureWebviewsHavePages=${appium:ensureWebviewsHavePages}  appium:nativeWebScreenshot=${appium:nativeWebScreenshot}  appium:newCommandTimeout=${appium:newCommandTimeout}  appium:connectHardwareKeyboard=${appium:connectHardwareKeyboard}
     # accessibility id=Sauce Lab Bolt T-Shirt
-    Click Element    accessibility id=Sauce Lab Bolt T-Shirt
+    Wait Until Page Contains Element       accessibility_id=Sauce Lab Bolt T-Shirt
+    Click Element    accessibility_id=Sauce Lab Bolt T-Shirt
     # id=com.saucelabs.mydemoapp.android:id/productTV
+    Wait Until Page Contains Element        id=com.saucelabs.mydemoapp.android:id/productTV
     Click Element    id=com.saucelabs.mydemoapp.android:id/productTV
     # id=com.saucelabs.mydemoapp.android:id/start5IV
     Click Element    id=com.saucelabs.mydemoapp.android:id/start5IV
     # accessibility id=Closes review dialog
-    Click Element    accessibility id=Closes review dialog
+    Click Element    accessibility_id=Closes review dialog
 
     Swipe    932    1804    945    853
     Swipe    913    1641    980    390
-    # accessibility id=Increase item quantity
-    Click Element    accessibility id=Increase item quantity
+    # accessibility_id=Increase item quantity
+    Click Element    accessibility_id=Increase item quantity
     # id=com.saucelabs.mydemoapp.android:id/noTV
     Click Element    id=com.saucelabs.mydemoapp.android:id/noTV
-    # accessibility id=Tap to add product to cart
-    Click Element    accessibility id=Tap to add product to cart
+    # accessibility_id=Tap to add product to cart
+    Click Element    accessibility_id=Tap to add product to cart
     # id=com.saucelabs.mydemoapp.android:id/cartIV
     Click Element    id=com.saucelabs.mydemoapp.android:id/cartIV
     # id=com.saucelabs.mydemoapp.android:id/productTV
@@ -54,8 +56,9 @@ Test case name
     Click Element    id=com.saucelabs.mydemoapp.android:id/titleTV
     # id=com.saucelabs.mydemoapp.android:id/priceTV
     Click Element    id=com.saucelabs.mydemoapp.android:id/priceTV
-    # accessibility id=Displays color of selected product
-    Click Element    accessibility id=Displays color of selected product
+    # accessibility_id=Displays color of selected product
+    Wait Until Page Contains Element        accessibility_id=Displays color of selected product
+    Click Element    accessibility_id=Displays color of selected product
     # id=com.saucelabs.mydemoapp.android:id/noTV
     Click Element    id=com.saucelabs.mydemoapp.android:id/noTV
     # id=com.saucelabs.mydemoapp.android:id/itemsTV
