@@ -20,10 +20,10 @@ ${appium:appPackage}    com.saucelabs.mydemoapp.android
 ${appium:appActivity}    com.saucelabs.mydemoapp.android.view.activities.SplashActivity
 ${appium:avd}    Pixel2RUFUSb
 ${appium:deviceOrientation}    portrait
-${appium:ensureWebviewsHavePages}    true
-${appium:nativeWebScreenshot}    true
+${appium:ensureWebviewsHavePages}    false
+${appium:nativeWebScreenshot}    false
 ${appium:newCommandTimeout}    3600
-${appium:connectHardwareKeyboard}    true
+${appium:connectHardwareKeyboard}    True
 
 *** Test Cases ***
 Test case name
@@ -31,6 +31,7 @@ Test case name
     Open Application    ${REMOTE_URL}   platformName=${platformName}  appium:automationName=${appium:automationName}  appium:deviceName=${appium:deviceName}  appium:appPackage=${appium:appPackage}  appium:appActivity=${appium:appActivity}  appium:avd=${appium:avd}  appium:deviceOrientation=${appium:deviceOrientation}  appium:ensureWebviewsHavePages=${appium:ensureWebviewsHavePages}  appium:nativeWebScreenshot=${appium:nativeWebScreenshot}  appium:newCommandTimeout=${appium:newCommandTimeout}  appium:connectHardwareKeyboard=${appium:connectHardwareKeyboard}
     # accessibility id=Sauce Lab Bolt T-Shirt
     Wait Until Page Contains Element       accessibility_id=Sauce Lab Bolt T-Shirt
+
     Click Element    accessibility_id=Sauce Lab Bolt T-Shirt
     # id=com.saucelabs.mydemoapp.android:id/productTV
     Wait Until Page Contains Element        id=com.saucelabs.mydemoapp.android:id/productTV
@@ -51,6 +52,7 @@ Test case name
     # id=com.saucelabs.mydemoapp.android:id/cartIV
     Click Element    id=com.saucelabs.mydemoapp.android:id/cartIV
     # id=com.saucelabs.mydemoapp.android:id/productTV
+    Wait Until Page Contains Element        id=com.saucelabs.mydemoapp.android:id/productTV
     Click Element    id=com.saucelabs.mydemoapp.android:id/productTV
     # id=com.saucelabs.mydemoapp.android:id/titleTV
     Click Element    id=com.saucelabs.mydemoapp.android:id/titleTV
